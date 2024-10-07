@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기말과제</title>
+
+    <style>
+        .container {
+            width: 800px;
+            height: 500px;
+            border: solid skyblue;
+            border-radius: 10px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        button {
+            border-radius: 20px;
+            margin: auto;
+            padding: 10px 20px;
+            font-style: italic;
+        }
+        p{
+            visibility : hidden;
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="mainbox">
+        <h2>그림 맞추기 게임</h2>
+        <h5>버튼을 클릭하면, 그림이 출력 됩니다. 모두 같은 그림이 나오면 성공합니다.</h5>
+        <hr>
+        <img class="box box1" src="sanrio.jpg" width="200px" height="200px">
+        <img class="box box2" src="sanrio4.jpg" width="200px" height="200px">
+        <img class="box box3" src="sanrio5.jpg" width="200px" height="200px">
+        </div>
+        <br>
+        <button type="button" onclick="changeimage()" onmouseover="pr()" onmouseout="ev()" id="play" style="background-color:blue; color: aliceblue; border-color: blue;">
+            Play</button>
+        <button type="button" onclick="restart()"onmouseover="bc()" onmouseout="ak()" id="res" style="background-color: red; color: aliceblue; border-color: red;">
+            Restart</button>
+        <p>congratulation ! Press Restart btn to play again !!</p>
+      </div>
+
+      <script>
+
+        let count = 0;
+
+        function pr() {
+            play.style.borderColor="black";
+        }
+        function bc() {
+            res.style.borderColor="black";
+        }
+        function ev() {
+            play.style.borderColor="blue";
+        }
+        function ak() {
+            res.style.borderColor="red";
+        }
+
+        let boximage1 = document.querySelector('.box1');
+        let boximage2 = document.querySelector('.box2');
+        let boximage3 = document.querySelector('.box3');
+        let imgArray = new Array();
+        let imgNum = new Array();
+
+        imgArray = ["sanrio.jpg",
+                "sanrio4.jpg",
+                "sanrio5.jpg"
+        ]
+
+        function changeimage() {
+            count++;
+            play.innerHTML = "click "+count;
+
+            imgNum = [];
+            
+            for (let i = 1; i <= 3; i++) {
+                imgNum.push(Math.floor(Math.random() * (imgArray.length-1)));
+                document.querySelector('.box' + i).src = imgArray[imgNum[i-1]];
+            }
+
+            let text = document.querySelector("p");
+
+            if(imgArray[imgNum[0]]==imgArray[imgNum[1]]&&imgArray[imgNum[1]]==imgArray[imgNum[2]]&&imgArray[imgNum[0]]==imgArray[imgNum[2]]){
+                text.style.visibility = "visible";
+                count=0;
+            }
+
+            
+        }
+
+        function restart(){
+            location.reload();
+        }
+      </script>
+</body>
+</html>

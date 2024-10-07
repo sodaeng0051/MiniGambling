@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Task</title>
+    <style>
+        .container {
+            width: 800px;
+            height: 500px;
+            border: solid skyblue;
+            border-radius: 10px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        button {
+            border-radius: 20px;
+            margin: auto;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <h2>그림 맞추기 게임</h2>
+        <h5>버튼을 클릭하면, 그림이 출력 됩니다. 모두 같은 그림이 나오면 승리 합니다.</h5>
+        <hr>
+        <div class = "display">
+                <span><img id="img1" src="sanrio.jpg" width="200px" height="200px"></span>
+                <span><img id="img2" src="sanrio4.jpg" width="200px" height="200px"></span>
+                <span><img id="img3" src="sanrio5.jpg" width="200px" height="200px"></span>
+        </div>
+        <br>
+        <button id="play" onclick="playing()" style="background-color: blue; color: aliceblue; border-color: blue;">
+            play</button>
+        <button id="result" style="background-color: red; color: aliceblue; border-color: red;" >
+            Restart</button>
+        
+    </div>
+
+    <script>  
+    let count=0;
+    let x, y, z;
+
+    
+        function playing() {   
+
+            count++;
+            play.innerHTML = "click "+count;
+
+            
+            let randomImage = new Array();  
+            
+            randomImage[0] = "sanrio.jpg";  
+            randomImage[1] = "sanrio4.jpg";  
+            randomImage[2] = "sanrio5.jpg"; 
+                
+            let number = Math.floor(Math.random()*randomImage.length);  
+
+            let x = document.getElementById("img1");
+            let y = document.getElementById("img2");
+            let z = document.getElementById("img3");
+            
+            function playing() {
+                return x.innerHTML = '<img src="'+randomImage[number]+'" width="200px" height="200px">';    
+            }
+           function playing() {
+            return y.innerHTML = '<img src="'+randomImage[number]+'" width="200px" height="200px">';
+           }
+            return y.innerHTML = '<img src="'+randomImage[number]+'" width="200px" height="200px">';
+            return z.innerHTML = '<img src="'+randomImage[number]+'" width="200px" height="200px">';
+
+
+            
+        }
+ 
+          
+        </script>
+</body>
+</html>

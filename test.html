@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            text-align: center;
+            margin: 0 auto;
+            width: 1000px;
+            height: 500px;
+            border: 1px solid blue;}
+
+        button {
+            border-radius: 20px;
+            margin: auto;
+            padding: 10px 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class = container>
+        <h3>그림 맞추기 게임</h3>
+        <h5>start버튼을 클릭하면 그림이 랜덤으로 출력됩니다. 모두 같은 그림이 나오면 승리합니다.</h5>
+        <h5>횟수는 turn으로 표시됩니다.</h5>
+        <h5>게임을 한번 더 원하시면 again 버튼을 눌러주세요 !</h5>
+        <hr>
+        <span id="img1" onclick="num1(this)"><img src="media/sanrio.jpg" width="200px" height="200px"></span>
+        <span id="img2" onclick="num2(this)"><img src="media/sanrio4.jpg" width="200px" height="200px"></span>
+        <span id="img3" onclick="num3(this)"><img src="media/sanrio5.jpg" width="200px" height="200px"></span>
+        <br><br>
+        <button id="play" style="background-color: blue; color: aliceblue; border-color: blue;">
+            play</button>
+        <button onclick="restart()" id="result" style="background-color: red; color: aliceblue; border-color: red;" >
+            start</button>
+        </div>
+    
+
+    <script>
+        let n1, n2, n3;
+        let count=0;
+
+        
+        let files = ["media/sanrio.jpg",
+                    "media/sanrio4.jpg",
+                    "media/sanrio5.jpg"];
+
+        let imgs = new Array();
+
+        for(let i = 0; i < files.length; i++) {
+            imgs[i] = new Image();
+            imgs[i].src = files[i];
+            
+        }
+
+        function num1(obj) {
+            count++;
+            play.innerHTML = count+" turn";
+            let num = Math.floor(Math.random()*3);
+            n1 = num;
+            obj.innerHTML = num;
+            return document.getElementById("img1").innerHTML = '<img src="'+files[num]+'" width="200px" height="200px">';
+        }
+
+        function num2(obj) {
+            let num = Math.floor(Math.random()*3);
+            n2 = num;
+            obj.innerHTML = num;
+            return document.getElementById("img2").innerHTML = '<img src="'+files[num]+'" width="200px" height="200px">';
+        }
+
+        function num3(obj) {
+            let num = Math.floor(Math.random()*3);
+            n3 = num;
+            obj.innerHTML = num;
+            return document.getElementById("img3").innerHTML = '<img src="'+files[num]+'" width="200px" height="200px">';
+        }
+
+        function restart() {
+            let res = document.getElementById("result");
+
+            if(num1(this)===num2(this) && num2(this)===num3(this) &&num1(this)===num3(this) ){
+                play.innerHTML = "congratulation !";
+                count=0;
+            }
+            else {
+                result.innerHTML = "again";
+            }
+        
+        }
+
+       
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            width: 620px;
+            height: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        button {
+            border-radius: 20px;
+            margin: auto;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <h2>그림 맞추기 게임</h2>
+        <h5>버튼을 클릭하면, 그림이 출력 됩니다. 모두 같은 그림이 나오면 승리 합니다.</h5>
+        <hr>
+        <div class = "display">
+            <span onkeydown="num1(this)"><img id="img" src="media/sanrio.jpg" width="200px" height="200px"></span>
+            <span onkeydown="num2(this)"><img id="img" src="media/sanrio4.jpg" width="200px" height="200px"></span>
+            <span onkeydown="num3(this)"><img id="img" src="media/sanrio5.jpg" width="200px" height="200px"></span>
+        </div>
+        <br>
+        <button onclick="playing()" style="background-color: blue; color: aliceblue; border-color: blue;">
+            play</button>
+        <button onclick="again()" style="background-color: red; color: aliceblue; border-color: red;" >
+            Restart</button>
+    </div>
+
+    <script>
+        function playing() {
+            document.getElementById("img").src="media/sanrio4.jpg";
+
+            let files = ["media/sanrio.jpg",
+                    "media/sanrio4.jpg",
+                    "media/sanrio5.jpg"];
+
+            let imgs = new Array();
+                for(let i = 0; i < files.length; i++) {
+                imgs[i] = new Image();
+                imgs[i].src = files[i];
+            }
+
+            let next = 1; //처음이미지는 출력이 되어있기 때문에 1로 설정
+            function change(img) {
+                let m = Math.random()*3;
+                let n = Math.floor(m);
+                console.log("n : " + n);
+
+                img.src = imgs[n].src;
+                next++; //클릭하면 이미지 계속 변경
+                next %= imgs.length; //next % imgs.length (0, 1, 2)를 반복
+                console.log("next : " + next);
+            }
+        }
+    </script>
+</body>
+</html>

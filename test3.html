@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 800px;
+            height: 500px;
+            border: solid skyblue;
+            border-radius: 10px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        button {
+            border-radius: 20px;
+            margin: auto;
+            padding: 10px 20px;
+        }
+        .play {
+            background-color: blue;
+            color: aliceblue;
+            border-color: blue;
+        }
+        .result {
+            background-color: red;
+            color: aliceblue;
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <h2>그림 맞추기 게임</h2>
+        <h5>버튼을 클릭하면, 그림이 출력 됩니다. 모두 같은 그림이 나오면 승리 합니다.</h5>
+        <hr>
+        <div class = "display">
+            <span id="img" type="multiple">
+                <img id="img1" src="sanrio.jpg" width="200px" height="200px">
+                <img id="img2" src="sanrio4.jpg" width="200px" height="200px">
+                <img id="img3" src="sanrio5.jpg" width="200px" height="200px">
+            </span>
+        </div>
+        <br>
+        <button id="play" onclick="playing()">play</button>
+        <button id="result" onclick="back()">Restart</button>
+    </div>
+
+    <script>  
+    let count=0;
+        function playing() {   
+
+            count++;
+            play.innerHTML = "click "+count;
+            
+            let randomImage = new Array();  
+            
+            randomImage[0] = "sanrio.jpg";  
+            randomImage[1] = "sanrio4.jpg";  
+            randomImage[2] = "sanrio5.jpg"; 
+                
+            let number = Math.floor(Math.random()*randomImage.length);  
+            
+            document.getElementById("img1").src = '<img src="'+randomImage[number]+'" width="200px" height="200px">';
+            document.getElementById("img2").src = '<img src="'+randomImage[number]+'" width="200px" height="200px">';
+            document.getElementById("img3").src = '<img src="'+randomImage[number]+'" width="200px" height="200px">';
+
+
+        }
+ 
+          
+        </script>
+</body>
+</html>
