@@ -3,4 +3,4 @@
 
 세 개의 그림이 같으면 완료 문구가 뜨는 게임이다.
 
-!![image](https://github.com/user-attachments/assets/221d1172-720f-4409-af6e-cebbd7d1aab1)
+![image](https://github.com/user-attachments/assets/221d1172-720f-4409-af6e-cebbd7d1aab1)
