@@ -1,5 +1,5 @@
 
-# ![free-icon-board-game-3292072](https://github.com/user-attachments/assets/0ee0319f-9770-4229-a323-031f3fb27a4e)
+# <img src="[free-icon-board-game-3292072](https://github.com/user-attachments/assets/0ee0319f-9770-4229-a323-031f3fb27a4e" width="50" height=50'/>
 MiniGambling
 이 프로젝트는 그림 맞추기 게임(Mini Gambling)을 만든 것으로 Play 버튼을 눌러 그림을 출력 후, 
 
